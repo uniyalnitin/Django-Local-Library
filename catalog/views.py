@@ -29,14 +29,10 @@ class BookListView(generic.ListView):
 		context['some data']= 'This is just some data'
 		return context
 
-# class BookDetailView(generic.DetailView):
-# 	model = BookInstance
-# 	template_name = 'catalog/book_detail.html' 
-# 	# context_object_name = "book-detail"
-# 	def book_detail_view(request, primary_key):
-# 		book = get_object_or_404(Book, id=primary_key)
-# 		return render(request, 'catalog/book_detail.html', context={'book': book})
-def bookDetailView(request,pk):
-	# id = request.get('pk')
-	book = get_object_or_404(Book,id = pk)
-	return render(request, 'catalog/book_detail.html', context={'book': book})
+class BookDetailView(generic.DetailView):
+	model = Book
+	template_name = 'catalog/book_detail.html' 
+	
+	def book_detail_view(request, primary_key):
+		book = get_object_or_404(Book, id=primary_key)
+		return render(request, 'catalog/book_detail.html', context={'book': book})
