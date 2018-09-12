@@ -13,6 +13,7 @@
       <li>
         <a href="{{ book.get_absolute_url }}">{{ book.title }}</a>({{ book.author }})
       </li>
+      {{ book.summary }}
       {% endfor %}
   </ul>
   </div>
