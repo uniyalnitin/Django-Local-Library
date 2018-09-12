@@ -36,3 +36,15 @@ class BookDetailView(generic.DetailView):
 	def book_detail_view(request, primary_key):
 		book = get_object_or_404(Book, id=primary_key)
 		return render(request, 'catalog/book_detail.html', context={'book': book})
+
+class AuthorListView(generic.ListView):
+	model = Author
+	template_name = 'catalog/author_list.html'
+
+class AuthorDetailView(generic.DetailView):
+	model = Author
+	template_name ='catalog/author_detail.html'
+
+	def author_detail_view(request,primary_key):
+		author = get_object_or_404(Author,primary_key)
+		return render(request,'catalog/author_detail.html', context={'author':author})
