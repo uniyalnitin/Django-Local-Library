@@ -1,0 +1,1 @@
+Create a virtual environment, install the django framework in it. Copy all these files inside it. 
